@@ -15,6 +15,7 @@ import { Toaster } from 'react-hot-toast';
 function App() {
   const { company, isPlaying, showEventModal, showHelpModal, currentView } = useGameStore();
 
+  
 
   if (!isPlaying || !company) {
     return (
