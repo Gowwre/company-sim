@@ -1,0 +1,320 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+/* Terminal Font */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Terminal Colors */
+  --color-terminal-bg: #0d1117;
+  --color-terminal-green: #00ff41;
+  --color-terminal-green-dim: #00cc33;
+  --color-terminal-green-dark: #008f11;
+  --color-terminal-amber: #ffb000;
+  --color-terminal-red: #ff3333;
+  --color-terminal-cyan: #00ffff;
+  --color-terminal-white: #e6e6e6;
+  --color-terminal-gray: #666666;
+
+  /* Theme mappings */
+  --color-background: #0d1117;
+  --color-foreground: #00ff41;
+  --color-card: #161b22;
+  --color-card-foreground: #00ff41;
+  --color-popover: #161b22;
+  --color-popover-foreground: #00ff41;
+  --color-primary: #00ff41;
+  --color-primary-foreground: #0d1117;
+  --color-secondary: #161b22;
+  --color-secondary-foreground: #00ff41;
+  --color-muted: #161b22;
+  --color-muted-foreground: #00cc33;
+  --color-accent: #00cc33;
+  --color-accent-foreground: #0d1117;
+  --color-destructive: #ff3333;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #008f11;
+  --color-input: #008f11;
+  --color-ring: #00ff41;
+
+  /* No border radius for terminal feel */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+}
+
+:root {
+  --background: 220 13% 5%;
+  --foreground: 120 100% 50%;
+  --card: 220 13% 8%;
+  --card-foreground: 120 100% 50%;
+  --popover: 220 13% 8%;
+  --popover-foreground: 120 100% 50%;
+  --primary: 120 100% 50%;
+  --primary-foreground: 220 13% 5%;
+  --secondary: 220 13% 12%;
+  --secondary-foreground: 120 100% 50%;
+  --muted: 220 13% 15%;
+  --muted-foreground: 120 50% 40%;
+  --accent: 120 100% 40%;
+  --accent-foreground: 220 13% 5%;
+  --destructive: 0 100% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 120 50% 20%;
+  --input: 120 50% 20%;
+  --ring: 120 100% 50%;
+  --radius: 0px;
+}
+
+/* Terminal Base Styles */
+body {
+  background-color: #0d1117;
+  color: #00ff41;
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+* {
+  border-color: #008f11;
+}
+
+/* CRT Monitor Effect */
+.crt-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0d1117;
+}
+
+.crt-container::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 50;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+}
+
+.crt-container::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 51;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/* Screen flicker effect */
+@keyframes flicker {
+  0% {
+    opacity: 0.97;
+  }
+  5% {
+    opacity: 0.95;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  15% {
+    opacity: 0.95;
+  }
+  20% {
+    opacity: 0.99;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.97;
+  }
+}
+
+.screen-flicker {
+  animation: flicker 0.15s infinite;
+}
+
+/* Glow effect for text */
+.glow {
+  text-shadow:
+    0 0 5px #00ff41,
+    0 0 10px #00ff41,
+    0 0 20px #00cc33;
+}
+
+.glow-dim {
+  text-shadow: 0 0 2px #00cc33;
+}
+
+/* Blinking cursor */
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background-color: #00ff41;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Terminal scrollbar */
+.terminal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-scroll::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+
+.terminal-scroll::-webkit-scrollbar-thumb {
+  background: #008f11;
+}
+
+.terminal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #00cc33;
+}
+
+/* Selection color */
+::selection {
+  background: #00ff41;
+  color: #0d1117;
+}
+
+/* Terminal colors utility classes - using style attribute approach for custom colors */
+.text-terminal-green {
+  color: #00ff41;
+}
+.text-terminal-dim {
+  color: #00cc33;
+}
+.text-terminal-dark {
+  color: #008f11;
+}
+.text-terminal-amber {
+  color: #ffb000;
+}
+.text-terminal-red {
+  color: #ff3333;
+}
+.text-terminal-cyan {
+  color: #00ffff;
+}
+.text-terminal-white {
+  color: #e6e6e6;
+}
+.text-terminal-gray {
+  color: #666666;
+}
+
+.text-terminal-purple {
+  color: #a855f7;
+}
+
+.bg-terminal-purple\/10 {
+  background-color: rgba(168, 85, 247, 0.1);
+}
+
+.border-terminal-purple\/30 {
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.bg-terminal {
+  background-color: #0d1117;
+}
+.bg-terminal-dark {
+  background-color: #050505;
+}
+.border-terminal {
+  border-color: #008f11;
+}
+
+/* Terminal input */
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff41;
+  font-family: inherit;
+  font-size: inherit;
+  caret-color: #00ff41;
+  width: 100%;
+}
+
+.terminal-input::placeholder {
+  color: #008f11;
+}
+
+/* ASCII Art helper */
+.ascii-art {
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: pre;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Terminal box drawing */
+.terminal-box {
+  border: 1px solid #008f11;
+  padding: 1px;
+}
+
+/* Command prompt */
+.prompt {
+  color: #00ff41;
+  font-weight: bold;
+}
+
+.prompt::after {
+  content: ' █';
+  animation: blink 1s step-end infinite;
+}
+
+@layer base {
+  * {
+    border-color: #008f11;
+  }
+  body {
+    background-color: #0d1117;
+    color: #00ff41;
+  }
+}

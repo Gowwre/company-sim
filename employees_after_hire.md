@@ -1,0 +1,110 @@
+- generic [ref=e426]:
+  - banner [ref=e427]:
+    - generic [ref=e428]:
+      - button [ref=e429]:
+        - img [ref=e430]
+      - generic [ref=e432]:
+        - generic [ref=e433]: COMPANY OS
+        - generic [ref=e434]: v2.0
+    - generic [ref=e435]:
+      - generic [ref=e438]: LIVE
+      - generic [ref=e439]:
+        - generic [ref=e440]: MONTH
+        - generic [ref=e441]: "1"
+      - generic [ref=e442]:
+        - generic [ref=e443]: CASH
+        - generic [ref=e444]: $100,000
+      - generic [ref=e445]:
+        - generic [ref=e446]: STAFF
+        - generic [ref=e447]: "1"
+      - generic [ref=e448]:
+        - generic [ref=e449]: PROJECTS
+        - generic [ref=e450]: "0"
+    - generic [ref=e451]:
+      - button "Help" [ref=e452]:
+        - img [ref=e453]
+      - button "Fullscreen" [ref=e456]:
+        - img [ref=e457]
+  - navigation [ref=e462]:
+    - generic [ref=e463]:
+      - button "DASHBOARD" [ref=e464]:
+        - img [ref=e465]
+        - generic [ref=e470]: DASHBOARD
+      - button "EMPLOYEES" [ref=e471]:
+        - img [ref=e472]
+        - generic [ref=e477]: EMPLOYEES
+      - button "PROJECTS" [ref=e478]:
+        - img [ref=e479]
+        - generic [ref=e481]: PROJECTS
+      - button "FINANCES" [ref=e482]:
+        - img [ref=e483]
+        - generic [ref=e485]: FINANCES
+      - button "ACHIEVEMENTS" [ref=e486]:
+        - img [ref=e487]
+        - generic [ref=e493]: ACHIEVEMENTS
+      - button "SETTINGS" [ref=e494]:
+        - img [ref=e495]
+        - generic [ref=e498]: SETTINGS
+  - main [ref=e563]:
+    - generic [ref=e710]:
+      - generic [ref=e711]:
+        - generic [ref=e712]:
+          - heading "Employees" [level=1] [ref=e713]
+          - paragraph [ref=e714]: 1 active, 0 former
+        - button "Hire Employee ($5,000)" [active] [ref=e715]:
+          - img
+          - text: Hire Employee ($5,000)
+      - generic [ref=e719] [cursor=pointer]:
+        - generic [ref=e720]:
+          - generic [ref=e721]:
+            - img [ref=e723]
+            - generic [ref=e727]:
+              - heading "You" [level=3] [ref=e728]
+              - paragraph [ref=e729]: Founder & CEO
+          - button [ref=e730]:
+            - img
+        - generic [ref=e731]:
+          - generic "Natural manager who unlocks team bonuses and improves overall performance." [ref=e732]: Leader
+          - generic [ref=e733]:
+            - generic [ref=e734]:
+              - generic [ref=e735]: Morale
+              - generic [ref=e736]: 100%
+            - progressbar [ref=e737]
+            - generic [ref=e739]:
+              - generic [ref=e740]: Productivity
+              - generic [ref=e741]: 1.0x
+            - generic [ref=e742]:
+              - generic [ref=e743]: Loyalty
+              - generic [ref=e744]: 100%
+          - generic [ref=e745]:
+            - generic [ref=e746]:
+              - img [ref=e747]
+              - generic [ref=e750]: "Tech: 85"
+            - generic [ref=e751]:
+              - img [ref=e752]
+              - generic [ref=e755]: "Sales: 75"
+            - generic [ref=e756]:
+              - img [ref=e757]
+              - generic [ref=e762]: "Design: 70"
+            - generic [ref=e763]:
+              - img [ref=e764]
+              - generic [ref=e768]: "Mgmt: 90"
+          - generic [ref=e769]:
+            - generic [ref=e770]:
+              - img [ref=e771]
+              - generic [ref=e773]: 0% busy
+            - generic [ref=e774]:
+              - img [ref=e775]
+              - generic [ref=e777]: 0/mo
+  - generic [ref=e701]:
+    - generic [ref=e702]:
+      - img [ref=e703]
+      - generic [ref=e705]: CMD
+    - combobox [ref=e707]:
+      - option "HIRE"
+      - option "FIRE"
+      - option "ASSIGN"
+      - option "CREATE"
+      - option "ADVANCE" [selected]
+    - button "[ EXECUTE ]" [ref=e708]
+    - button "[SHOW HELP]" [ref=e709]
