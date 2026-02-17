@@ -1,73 +1,137 @@
-# React + TypeScript + Vite
+# Company Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A terminal-style React game for managing a software company. Hire employees, manage projects, balance finances, and grow your startup in this retro CRT-themed simulation.
 
-Currently, two official plugins are available:
+![Terminal Theme](https://img.shields.io/badge/Theme-Terminal%20CRT-green?style=flat-square)
+![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Employee Management**: Hire, manage, and maintain employee morale
+- **Project System**: Take on software projects with varying complexity
+- **Financial Simulation**: Balance cash flow, salaries, and revenue
+- **Company Culture**: Dynamic culture system affecting productivity
+- **Random Events**: Unexpected challenges and opportunities
+- **Achievements**: Unlock milestones as you grow
+- **Terminal Aesthetic**: Authentic CRT monitor experience with sound effects
+- **Persistent State**: Game progress saved automatically
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+| Category  | Technology                 |
+| --------- | -------------------------- |
+| Framework | React 19 + Vite            |
+| Language  | TypeScript 5.9             |
+| Styling   | Tailwind CSS 4 + shadcn/ui |
+| State     | Zustand (with persistence) |
+| Animation | Framer Motion              |
+| Charts    | Recharts                   |
+| Icons     | Lucide React               |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js 18+
+- bun
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd kimi
+
+# Install dependencies
+bun install
+
+# Start development server
+bun run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The game will be available at `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Build for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── ui/             # shadcn/ui components
+│   ├── dashboard/      # Dashboard views
+│   ├── employees/      # Employee management
+│   └── projects/       # Project views
+├── engine/             # Game simulation logic
+│   ├── core/           # SimulationEngine.ts
+│   ├── employees/      # EmployeeSystem.ts
+│   ├── projects/       # ProjectSystem.ts
+│   ├── finances/       # FinancialSystem.ts
+│   ├── events/         # EventSystem.ts
+│   └── culture/        # CultureSystem.ts
+├── generators/         # Entity generators
+│   ├── EmployeeGenerator.ts
+│   └── ProjectGenerator.ts
+├── store/              # Zustand state management
+│   └── gameStore.ts
+├── types/              # TypeScript definitions
+├── utils/              # Utility functions
+│   ├── commands.ts
+│   └── terminalSound.ts
+├── data/               # Static data
+│   ├── personalities.ts
+│   └── achievements.ts
+└── hooks/              # Custom React hooks
+```
+
+## Available Scripts
+
+| Command           | Description              |
+| ----------------- | ------------------------ |
+| `npm run dev`     | Start development server |
+| `npm run build`   | Build for production     |
+| `npm run lint`    | Run ESLint               |
+| `npm run preview` | Preview production build |
+
+## Game Mechanics
+
+### Core Systems
+
+- **Simulation Engine**: Orchestrates monthly progression
+- **Employee System**: Manages hiring, skills, and morale
+- **Project System**: Handles project lifecycle and completion
+- **Financial System**: Tracks cash flow and profitability
+- **Event System**: Generates random events
+- **Culture System**: Manages company culture and environment
+
+### Terminal Commands
+
+The game features a command-line interface:
+
+- `help` - Show available commands
+- `hire <name>` - Hire a new employee
+- `project <name>` - Start a new project
+- `advance` - Advance to next month
+- `status` - View company status
+- And more...
+
+## Design Decisions
+
+- **Named Exports**: All components use named exports (except App.tsx)
+- **Local-First**: No backend required, all data stored in browser
+- **Type Safety**: Strict TypeScript with no `any` types
+- **Path Aliases**: All imports use `@/` for consistency
+- **Class-based Engines**: Game logic encapsulated in classes
+
+## Contributing
+
+1. Follow existing code patterns in `.project-patterns/`
+2. Use PascalCase for components and classes
+3. Use camelCase for utilities and hooks
+4. Maintain terminal aesthetic in all UI components
